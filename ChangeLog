@@ -1,3 +1,7 @@
+2019-02-16  Sachin Patil  <psachin@redhat.com>
+
+	* Python 3 support
+
 2016-03-14  Sachin  <psachin@redhat.com>
 
 	* Independent repo
@@ -9,4 +13,3 @@
 2014-04-25  Sachin  <iclcoolster@gmail.com>
 
 	* TAB completion
-

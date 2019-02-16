@@ -1,14 +1,15 @@
 * [[./img/logo.png]]
-  /Lightweight Python virtual environment manager/
+  /A Lightweight Python virtual environment manager/
 
   For more than a year *setV* was lying under [[https://github.com/psachin/bash_scripts][bash_scripts]]. I use it
   as an alternative to [[https://virtualenvwrapper.readthedocs.org/][virtualenvwrapper]]. It is a Bash function which
   provides basic features such as:
-  - Create new virtual environment
-  - Delete existing virtual environment(s)
-  - List existing virtual environment(s)
-  - In case you don't remember virtual environment name, TAB completion
-    works :)
+  - Python 3 support by default
+  - Create a new virtual environment.
+  - Create a new virtual environment using custom Python path using =-p|--python=.
+  - Delete an existing virtual environment(s).
+  - List all existing virtual environment(s).
+  - In case you don't remember the virtual environment name, TAB completion works :)
 
 ** Installation
    Run the command
@@ -17,7 +18,7 @@
    #+END_SRC
 
 ** Usage
-   - First of all, the command is =setv=
+   - First of all, the command is =setv=!!
    - When you install =setv=, the installation script will ask you to
      source =~/.bashrc= or =~/.bash_profile=. Please do that.
 
@@ -26,17 +27,18 @@
 
 *** Create virtual environment
     #+BEGIN_SRC sh
-      setv --new rango
+      setv --new rango  # setv -n rango
+
+      # Or using a custom Python binary path
+      setv --new --python /opt/python/python3 rango  # setv -n -p /opt/python/python3 rango
     #+END_SRC
 
 *** Activate existing environment
 
     #+BEGIN_SRC sh
       setv VIRTUAL_ENVIRONMENT_NAME
-    #+END_SRC
 
-    For example
-    #+BEGIN_SRC sh
+      # For example
       setv rango
     #+END_SRC
 
@@ -63,7 +65,7 @@
      - Bash-like TAB completion works for virtual environment names
 
 ** Contribute
-   - Create new issue.
+   - Create a new issue.
    - Patches are welcome for existing issues.
 
 ** License
