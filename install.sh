@@ -1,7 +1,9 @@
 # #!/usr/bin/env bash
 # Installation script for setV
 #
-# License: GNU GPL v3, See LICENSE file
+# License: GNU GPL v3, See LICENSE file.
+#
+# WARNING: This will replace existing installation of setV.
 #
 # TODO: Verify THIS file
 
@@ -14,7 +16,7 @@ echo -e "${RED}"* "${RESET}""${BOLD_GREEN}"Creating directory to hold all Python
 mkdir -p "${HOME}"/virtualenvs
 
 echo -e "${RED}"* "${RESET}""${BOLD_GREEN}"Downloading setV"${RESET}"
-curl -# https://raw.githubusercontent.com/psachin/setV/master/virtual.sh -o ${HOME}/.virtual.sh
+curl -# https://gitlab.com/psachin/setV/raw/master/virtual.sh -o ${HOME}/.virtual.sh
 
 if [ -e "${HOME}/.bashrc" ];
 then
