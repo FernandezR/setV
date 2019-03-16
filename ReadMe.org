@@ -14,7 +14,7 @@
 ** Installation
    Run the command
    #+BEGIN_SRC sh
-     curl https://raw.githubusercontent.com/psachin/setV/master/install.sh | sh -
+     curl https://gitlab.com/psachin/setV/raw/master/install.sh | sh -
    #+END_SRC
 
 ** Usage
@@ -22,8 +22,8 @@
    - When you install =setv=, the installation script will ask you to
      source =~/.bashrc= or =~/.bash_profile=. Please do that.
 
-** Screencast(Installation & Usage)
-   [[./img/screencast.gif]]
+** Screencast(Usage)
+   #+HTML: <a href="https://asciinema.org/a/234059" target="_blank"><img src="https://asciinema.org/a/234059.svg" /></a>
 
 *** Create virtual environment
     #+BEGIN_SRC sh
