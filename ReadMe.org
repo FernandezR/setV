@@ -6,13 +6,12 @@
   provides basic features such as:
   - Python 3 support by default
   - Create a new virtual environment.
-  - Create a new virtual environment using custom Python path using =-p|--python=.
+  - Create a new virtual environment using custom Python path using =-p= or =--python=.
   - Delete an existing virtual environment(s).
   - List all existing virtual environment(s).
   - In case you don't remember the virtual environment name, TAB completion works :)
 
 ** Installation
-   Run the command
    #+BEGIN_SRC sh
      curl https://gitlab.com/psachin/setV/raw/master/install.sh | sh -
    #+END_SRC
@@ -23,7 +22,7 @@
      source =~/.bashrc= or =~/.bash_profile=. Please do that.
 
 ** Screencast(Usage)
-   #+HTML: <a href="https://asciinema.org/a/234059" target="_blank"><img src="https://asciinema.org/a/234059.svg" /></a>
+   #+HTML: <a href="https://asciinema.org/a/234059" target="_blank"><img src="https://asciinema.org/a/234059.svg" width="800"/></a>
 
 *** Create virtual environment
     #+BEGIN_SRC sh
@@ -43,7 +42,7 @@
     #+END_SRC
 
 *** List all virtual environment(s)
-    You can list existing virtual environments by typing
+    You can list existing virtual environments as shown below:
     #+BEGIN_SRC sh
       setv --list
       # or
@@ -62,11 +61,15 @@
     #+END_SRC
 
 *** In case you don't fully remember virtual environment name
-     - Bash-like TAB completion works for virtual environment names
+     - Bash-like TAB completion works for virtual environment names.
 
 ** Contribute
    - Create a new issue.
    - Patches are welcome for existing issues.
-
+** Related reading
+   - [[https://psachin.gitlab.io/why_setv.html][https://psachin.gitlab.io/why_setv.html]]
+   - [[https://opensource.com/article/20/1/setv-bash-function][https://opensource.com/article/20/1/setv-bash-function]]
+   - [[https://psachin.gitlab.io/setv_now_supports_python3.html][https://psachin.gitlab.io/setv_now_supports_python3.html]]
+   - [[https://psachin.gitlab.io/set_virtualenvironment.html][https://psachin.gitlab.io/set_virtualenvironment.html]]
 ** License
    GNU GPL version 3. See LICENSE file.
