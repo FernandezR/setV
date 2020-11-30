@@ -66,8 +66,12 @@ function _setv_help_() {
     echo -e "-l, --list                 List all Virtual Envs."
     echo -e "-n, --new NAME             Create a new Python Virtual Env."
     echo -e "-d, --delete NAME          Delete existing Python Virtual Env."
-    echo -e "-p, --python PATH          Python binary path."
+    echo -e "-p, --path PYTHON_PATH     Python binary path."
+    echo -e "-s, --system-site-packages Give access to the system site-packages dir."
+
 }
+
+PARSED_ARGUMENTS=$(getopt -a -n alphabets -o lndsp: --long list,new,delete,system-site-packages,path: -- $@)
 
 function _setv_custom_python_path()
 {
