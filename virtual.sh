@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # setV - A Lightweight Python virtual environment manager.
 # Author: Sachin (psachin) <iclcoolster@gmail.com>
-# Author's URL: https://psachin.gitlab.io/about
+# Author's profile: https://psachin.gitlab.io/about
 #
 # License: GNU GPL v3, See LICENSE file
 #
@@ -36,6 +36,8 @@
 # To deactivate, type:
 # $ deactivate
 
+# Version
+SETV_VERSION=2.0
 # Path to virtual environment directory
 SETV_VIRTUAL_DIR_PATH="$HOME/virtualenvs/"
 # Default python version to use. This decides whether to use `virtualenv` or `python3 -m venv`
@@ -59,6 +61,9 @@ function _setvcomplete_()
 
 function _setv_help_() {
     # Echo help/usage message
+    echo "--------"
+    echo "setv $SETV_VERSION"
+    echo "--------"
     echo "Usage: setv [OPTIONS] [NAME]"
     echo Positional argument:
     echo -e "NAME                       Activate virtual env."
@@ -73,16 +78,16 @@ function _setv_custom_python_path()
 {
     if [ -f "${1}" ];
     then
-	if [ "`expr $1 : '.*python\([2,3]\)'`" = "3" ];
-	then
-	    SETV_PYTHON_VERSION=3
-	else
-	    SETV_PYTHON_VERSION=2
-	fi
-	SETV_PY_PATH=${1}
-	_setv_create $2
+        if [ "`expr $1 : '.*python\([2,3]\)'`" = "3" ];
+	    then
+	        SETV_PYTHON_VERSION=3
+	    else
+	        SETV_PYTHON_VERSION=2
+	    fi
+	    SETV_PY_PATH=${1}
+	    _setv_create $2
     else
-	echo "Error: Path ${1} does not exist!"
+	    echo "Error: Path ${1} does not exist!"
     fi
 }
 
@@ -91,19 +96,17 @@ function _setv_create()
     # Creates new virtual environment if ran with -n|--new flag
     if [ -z ${1} ];
     then
-	echo "You need to pass virtual environment name"
-	_setv_help_
+	    echo "You need to pass virtual environment name"
+	    _setv_help_
     else
-	echo "Creating new virtual environment with the name: $1"
-
-	if [ ${SETV_PYTHON_VERSION} -eq 3 ];
-	then
-	    ${SETV_PY_PATH} -m venv ${SETV_VIRTUAL_DIR_PATH}${1}
-	else
-	    virtualenv -p ${SETV_PY_PATH} ${SETV_VIRTUAL_DIR_PATH}${1}
-	fi
-
-	echo "You can now activate the Python virtual environment by typing: setv ${1}"
+	    echo "Creating new virtual environment with the name: $1"
+	    if [ ${SETV_PYTHON_VERSION} -eq 3 ];
+	    then
+	        ${SETV_PY_PATH} -m venv ${SETV_VIRTUAL_DIR_PATH}${1}
+	    else
+	        virtualenv -p ${SETV_PY_PATH} ${SETV_VIRTUAL_DIR_PATH}${1}
+	    fi
+	    echo "You can now activate the Python virtual environment by typing: setv ${1}"
     fi
 }
 
@@ -113,20 +116,21 @@ function _setv_delete()
     # TODO: Refactor
     if [ -z ${1} ];
     then
-	echo "You need to pass virtual environment name"
-	_setv_help_
+        echo "You need to pass virtual environment name"
+        _setv_help_
     else
-	if [ -d ${SETV_VIRTUAL_DIR_PATH}${1} ];
-	then
-	    read -p "Really delete this virtual environment(Y/N)? " yes_no
-	    case $yes_no in
-		Y|y) rm -rvf ${SETV_VIRTUAL_DIR_PATH}${1};;
-		N|n) echo "Leaving the virtual environment as it is.";;
-		*) echo "You need to enter either Y/y or N/n"
-	    esac
-	else
-	    echo "Error: No virtual environment found by the name: ${1}"
-	fi
+	    if [ -d ${SETV_VIRTUAL_DIR_PATH}${1} ];
+	    then
+            echo -n "Really delete this virtual environment(Y/N)? "
+            read yes_no
+            case $yes_no in
+                Y|y) rm -rvf ${SETV_VIRTUAL_DIR_PATH}${1};;
+                N|n) echo "Leaving the virtual environment as it is.";;
+                *) echo "You need to enter either Y/y or N/n"
+            esac
+        else
+            echo "Error: No virtual environment found by the name: ${1}"
+        fi
     fi
 }
 
@@ -136,7 +140,7 @@ function _setv_list()
     echo -e "List of virtual environments you have under ${SETV_VIRTUAL_DIR_PATH}:\n"
     for virt in $(ls -l "${SETV_VIRTUAL_DIR_PATH}" | egrep '^d' | awk -F " " '{print $NF}')
     do
-	echo ${virt}
+        echo ${virt}
     done
 }
 
@@ -144,30 +148,30 @@ function setv() {
     # Main function
     if [ $# -eq 0 ];
     then
-	_setv_help_
+        _setv_help_
     elif [ $# -le 3 ];
     then
-	case "${1}" in
-	    -n|--new) _setv_create ${2};;
-	    -d|--delete) _setv_delete ${2};;
-	    -l|--list) _setv_list;;
-	    *) if [ -d ${SETV_VIRTUAL_DIR_PATH}${1} ];
-	       then
-		   # Activate the virtual environment
-		   source ${SETV_VIRTUAL_DIR_PATH}${1}/bin/activate
-	       else
-		   # Else throw an error message
-		   echo "Sorry, you don't have any virtual environment with the name: ${1}"
-		   _setv_help_
-	       fi
-	       ;;
-	esac
+        case "${1}" in
+            -n|--new) _setv_create ${2};;
+            -d|--delete) _setv_delete ${2};;
+            -l|--list) _setv_list;;
+            *) if [ -d ${SETV_VIRTUAL_DIR_PATH}${1} ];
+               then
+                   # Activate the virtual environment
+                   source ${SETV_VIRTUAL_DIR_PATH}${1}/bin/activate
+               else
+                   # Else throw an error message
+                   echo "Sorry, you don't have any virtual environment with the name: ${1}"
+                   _setv_help_
+               fi
+               ;;
+        esac
     elif [ $# -le 5 ];
     then
-	case "${2}" in
-	    -p|--python) _setv_custom_python_path ${3} ${4};;
-	    *) _setv_help_;;
-	esac
+        case "${2}" in
+            -p|--python) _setv_custom_python_path ${3} ${4};;
+            *) _setv_help_;;
+        esac
     fi
 }
 

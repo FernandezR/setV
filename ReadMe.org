@@ -4,7 +4,8 @@
   For more than a year *setV* was lying under [[https://github.com/psachin/bash_scripts][bash_scripts]]. I use it
   as an alternative to [[https://virtualenvwrapper.readthedocs.org/][virtualenvwrapper]]. It is a Bash function which
   provides basic features such as:
-  - Python 3 support by default
+  - ZSH support.
+  - Python 3 support by default.
   - Create a new virtual environment.
   - Create a new virtual environment using custom Python path using =-p= or =--python=.
   - Delete an existing virtual environment(s).
@@ -19,7 +20,7 @@
 ** Usage
    - First of all, the command is =setv=!!
    - When you install =setv=, the installation script will ask you to
-     source =~/.bashrc= or =~/.bash_profile=. Please do that.
+     source =~/.bashrc= or =~/.bash_profile= or =~/.zshrc=. Please do that.
 
 ** Screencast(Usage)
    #+HTML: <a href="https://asciinema.org/a/234059" target="_blank"><img src="https://asciinema.org/a/234059.svg" width="800"/></a>
@@ -71,5 +72,8 @@
    - [[https://opensource.com/article/20/1/setv-bash-function][https://opensource.com/article/20/1/setv-bash-function]]
    - [[https://psachin.gitlab.io/setv_now_supports_python3.html][https://psachin.gitlab.io/setv_now_supports_python3.html]]
    - [[https://psachin.gitlab.io/set_virtualenvironment.html][https://psachin.gitlab.io/set_virtualenvironment.html]]
+** Demo
+   - https://asciinema.org/a/424446
+   - https://asciinema.org/a/234059
 ** License
    GNU GPL version 3. See LICENSE file.
