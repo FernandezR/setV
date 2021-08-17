@@ -1,16 +1,18 @@
 * [[./img/logo.png]]
-  /A Lightweight Python virtual environment manager/
+  /A Lightweight Python virtual environment manager./
 
   For more than a year *setV* was lying under [[https://github.com/psachin/bash_scripts][bash_scripts]]. I use it
   as an alternative to [[https://virtualenvwrapper.readthedocs.org/][virtualenvwrapper]]. It is a Bash function which
   provides basic features such as:
-  - ZSH support.
-  - Python 3 support by default.
   - Create a new virtual environment.
-  - Create a new virtual environment using custom Python path using =-p= or =--python=.
   - Delete an existing virtual environment(s).
   - List all existing virtual environment(s).
   - Bash-like TAB completion to auto-complete virtual environment names.
+
+  Recent changes:
+  - ZSH support.
+  - Python 3 support by default.
+  - Create a new virtual environment using custom Python path using =-p= or =--python=.
 
 ** Installation
    #+BEGIN_SRC sh
@@ -28,7 +30,7 @@
 
      # or
 
-     source ~/.zshrc=
+     source ~/.zshrc
    #+END_SRC
 
 ** Screen-cast(Usage)
@@ -82,7 +84,7 @@
    - [[https://psachin.gitlab.io/setv_now_supports_python3.html][https://psachin.gitlab.io/setv_now_supports_python3.html]]
    - [[https://psachin.gitlab.io/set_virtualenvironment.html][https://psachin.gitlab.io/set_virtualenvironment.html]]
 ** Demo
-   - [[https://asciinema.org/a/424446]]
-   - [[https://asciinema.org/a/234059]]
+   - ZSH Support in setv 2.0: [[https://asciinema.org/a/424446]]
+   - CHanges in setv 1.0: [[https://asciinema.org/a/234059]]
 ** License
    GNU GPL version 3. Refer the [[https://gitlab.com/psachin/setV/-/blob/master/LICENSE][LICENSE]] file.

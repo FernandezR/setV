@@ -30,6 +30,9 @@
 # To create new virtual environment:
 # $ setv --new new_virtualenv_name
 #
+# To create new virtual environment with Python path:
+# $ setv --new --python /path/to/python_binary new_virtualenv_name
+#
 # To delete existing virtual environment:
 # $ setv --delete existing_virtualenv_name
 #
