@@ -21,10 +21,10 @@ fi
 if [ ! -e "${HOME}/.virtual.sh" ];
    then
        echo -e "${RED}"* "${RESET}""${BOLD_GREEN}"Downloading and Updating setV"${RESET}"
-       curl -# https://gitlab.com/psachin/setV/raw/master/virtual.sh -o ${HOME}/.virtual.sh
+       curl -# https://github.com/FernandezR/setV/raw/master/virtual.sh -o ${HOME}/.virtual.sh
 else
        echo -e "${RED}"* "${RESET}""${BOLD_GREEN}"Downloading and Installing setV"${RESET}"
-       curl -# https://gitlab.com/psachin/setV/raw/master/virtual.sh -o ${HOME}/.virtual.sh
+       curl -# https://github.com/FernandezR/setV/raw/master/virtual.sh -o ${HOME}/.virtual.sh
 fi
 
 # for SH/BASH
