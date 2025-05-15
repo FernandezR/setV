@@ -12,10 +12,10 @@ RED="\e[0;31m"
 BLUE="\e[0;34m"
 RESET="\e[0m"
 
-if [[ ! -d "${HOME}/virtualenvs" ]];
+if [[ ! -d "${HOME}/.virtualenvs" ]];
    then
        echo -e "${RED}"* "${RESET}""${BOLD_GREEN}"Creating directory to hold all Python virtual environments"${RESET}"
-       mkdir -p "${HOME}"/virtualenvs
+       mkdir -p "${HOME}"/.virtualenvs
 fi
 
 if [ ! -e "${HOME}/.virtual.sh" ];
