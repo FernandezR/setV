@@ -42,7 +42,7 @@
 # Version
 SETV_VERSION=2.0
 # Path to virtual environment directory
-SETV_VIRTUAL_DIR_PATH="$HOME/virtualenvs/"
+SETV_VIRTUAL_DIR_PATH="$HOME/.virtualenvs/"
 # Default python version to use. This decides whether to use `virtualenv` or `python3 -m venv`
 SETV_PYTHON_VERSION=3  # Defaults to Python3
 SETV_PY_PATH=$(which python${SETV_PYTHON_VERSION})
